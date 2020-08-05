@@ -1,0 +1,9 @@
+<?php
+
+namespace {{namespace}};
+use App\Http\Filters\QueryFilter;
+use Illuminate\Database\Eloquent\Builder;
+
+class {{filter}} extends QueryFilter {
+    
+}

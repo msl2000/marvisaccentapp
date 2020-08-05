@@ -1,0 +1,13 @@
+<?php
+
+namespace {{namespace}};
+
+use App\Services\Interfaces\Repository;
+
+class {{repository}} implements Repository {
+    public function all($filter){}
+    public function create($request){}
+    public function read($object){}
+    public function update($request, $object){}
+    public function delete($object){}
+}
