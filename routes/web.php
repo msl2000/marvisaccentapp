@@ -14,10 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
-    $host = $url["host"];
-    $username = $url["user"];
-    $password = $url["pass"];
-    $database = substr($url["path"], 1);
-    return [$host, $username, $password, $database];
+        return "Welcome to Accent API V1.0";
 });
