@@ -1,79 +1,70 @@
-<p align="center"><img src="https://res.cloudinary.com/dtfbvvkyp/image/upload/v1566331377/laravel-logolockup-cmyk-red.svg" width="400"></p>
+# Marvis AccentGroup Tech Test (BACKEND LARAVEL)
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/d/total.svg" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/v/stable.svg" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
-</p>
 
-## About Laravel
+The application has a frontend and backend instance running and is built with the following frameworks
 
-Laravel (L) is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+  - NuxtJS (VueJS Framework) - Front End
+  - Laravel - Backend
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# About the task!
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Create a web application containing 2 pages. A dashboard page displaying sales in a chart with days total with a date range element where the values default to sales last month.
 
-## Learning Laravel
+My approach to this task is to separate the frontend layer into it's own instance for better project management and providing a Single Page Application (SPA) solution for the project. We will be leveraging a RESTful approach by requesting and consuming all out data layer from the backend repositories.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### Tech
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+The backend application uses a number of open source projects to work properly:
 
-## Laravel Sponsors
+* [Laravel] - Laravel is a free, open-source PHP web framework that provides an MVC approach to building applications. Laravel is a complete web solution for building RESTful APIs provide resource and route management with ease.
+* [MySQL] - An open-source relational database management system.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+### Installation of the Backend
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- [UserInsights](https://userinsights.com)
-- [Fragrantica](https://www.fragrantica.com)
-- [SOFTonSOFA](https://softonsofa.com/)
-- [User10](https://user10.com)
-- [Soumettre.fr](https://soumettre.fr/)
-- [CodeBrisk](https://codebrisk.com)
-- [1Forge](https://1forge.com)
-- [TECPRESSO](https://tecpresso.co.jp/)
-- [Runtime Converter](http://runtimeconverter.com/)
-- [WebL'Agence](https://weblagence.com/)
-- [Invoice Ninja](https://www.invoiceninja.com)
-- [iMi digital](https://www.imi-digital.de/)
-- [Earthlink](https://www.earthlink.ro/)
-- [Steadfast Collective](https://steadfastcollective.com/)
-- [We Are The Robots Inc.](https://watr.mx/)
-- [Understand.io](https://www.understand.io/)
-- [Abdel Elrafa](https://abdelelrafa.com)
-- [Hyper Host](https://hyper.host)
-- [Appoly](https://www.appoly.co.uk)
-- [OP.GG](https://op.gg)
-- [云软科技](http://www.yunruan.ltd/)
+For installation on a test invironment running an Linux/Windows or Mac machine, please refer to the following build setup
 
-## Contributing
+## Build Setup
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+```bash
+# Install vendor dependencies
+$ composer install
 
-## Code of Conduct
+# Migrate database migration
+$ php artisan migrate
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+# You are now free to start your Laravel application, recommended to use Valet if using a UNIX system for ease of implmentation. (https://laravel.com/docs/7.x/valet)
 
-## Security Vulnerabilities
+If using Windows, please use Homestead (https://laravel.com/docs/7.x/homestead)
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+```
 
-## License
+For production environments, in this case Heroku, please use the following build set up
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+## Build Setup
+
+```bash
+# on the project, we need to create a Profile to point the document root to the /public folder as Laravel's document root is the public/ subdirectory. 
+
+$ echo "web: vendor/bin/heroku-php-apache2 public/" > Procfile
+
+# The application’s encryption key is used by Laravel to encrypt user sessions and other information. Its value will be read from the APP_KEY environment variable. You can simply set environment variables using the heroku config command, so run a heroku config:set as the last step before deploying your app for the first time:
+
+$ heroku config:set APP_KEY=$(php artisan --no-ansi key:generate --show).
+
+# Heroku uses a Procfile (name the file Procfile with no file extension) that specifies the commands that are executed by the apps dynos. To start the Procfile will be very simple, and needs to contain the following line:
+
+#Finally, we can push the app on Heroku with:
+
+$git push heroku master
+
+#To deploy a non-master branch to Heroku use:
+
+$git push heroku develop:master
+
+# Now we need to map the application to run a MySQL Instance. To do this, ensure ClearDB is installed as an add-on on the Heroku application. We can configure the Environment Files through the dashboard with the correct DB host and authentication information
+
+# For more information, please find 
+https://mattstauffer.com/blog/laravel-on-heroku-using-a-mysql-database/
+
+#where develop is the name of your branch.
+```
