@@ -13,7 +13,11 @@ class FetchByMonth implements FetchStrategy
 {
     public function fetch()
     {
-        // if (!$data = Cache::get($month)) {
+        /**
+         * Statistical data can be optimised using Redis to cache datacollections. Considering the dataset is not too large,
+         * there was no need to implement it at this time.
+         */
+        // if (!$data = Redis::get($month)) {
         $sales = Sale::select(
             DB::raw('ROUND(sum(price), 2) as sums'),
             // DB::raw("DATE_FORMAT(date,'%M %Y') as months")
