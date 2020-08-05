@@ -14,5 +14,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    $url = parse_url(getenv("CLEARDB_DATABASE_URL"));
 });
