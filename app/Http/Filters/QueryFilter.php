@@ -7,6 +7,12 @@ use Illuminate\Http\Request;
 
 abstract class QueryFilter
 {
+    /***
+     * This class is built with the Adapter Pattern in mind.
+     * The QueryFilter class provides a way for query filters to be appended to our requests in a more efficient and
+     * cleaner way. It checks parameters passed through the Request objects and append builder queries on the go.
+     * 
+     */
     /**
      * @var Request
      */

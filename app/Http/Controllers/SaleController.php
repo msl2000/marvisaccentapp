@@ -12,6 +12,8 @@ class SaleController extends Controller
 {
     /**
      * Initialize the repositories to be used for this resource controller
+     * NOTE: We have 2 repositories to consume, the SalesRepository that fetches standard Sales data and the statistics repository to fetch
+     * Sales Chart data
      */
     public function __construct()
     {
@@ -21,7 +23,7 @@ class SaleController extends Controller
     /**
      * Display a listing of the resource.
      *
-     * @return \Illuminate\Http\Response
+     * @return App\Http\Filters\SalesFilter
      */
     public function index(SalesFilter $filter)
     {

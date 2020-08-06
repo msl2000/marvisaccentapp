@@ -19,6 +19,19 @@ The backend application uses a number of open source projects to work properly:
 * [Laravel] - Laravel is a free, open-source PHP web framework that provides an MVC approach to building applications. Laravel is a complete web solution for building RESTful APIs provide resource and route management with ease.
 * [MySQL] - An open-source relational database management system.
 
+### DESIGN PATTERNS
+
+Some patterns used to solve the problem.
+
+* [Adapter Pattern] - The adapter pattern convert the interface of a class into another interface clients expect. It is often used to make existing classes work with others without modifying their source code
+
+* [Repository Pattern] - Separate the domain and the persistent layer. The repository provides a collection interface to access data stored in a database, file system or external service
+
+* [Strategy Pattern] - used when there are multiple ways to do a task using different implementations
+
+* [Chain-of-responsibility pattern] - design pattern consisting of a source of command objects and a series of processing objects.
+
+
 ### Installation of the Backend
 
 For installation on a test invironment running an Linux/Windows or Mac machine, please refer to the following build setup

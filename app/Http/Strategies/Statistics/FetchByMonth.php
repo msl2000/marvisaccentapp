@@ -11,6 +11,15 @@ use Illuminate\Support\Facades\DB;
 
 class FetchByMonth implements FetchStrategy
 {
+    /**
+     * @param  null
+     * @return App\Http\Resources\SalesStatisticResource
+     * NOTE:
+     * This class can be used when retrieving Sales Chart Statistics by the month issues in the Request. 
+     * 1) Retrieves sales based on the start and end date of request date, which would be the whole month. The sales are grouped by dates and prices are summed
+     * 2) Creates the date labels and attach the relevant sales data to the right date label
+     * Create a new SalesStatisticResource for the Frontend applcation to consume
+     */
     public function fetch()
     {
         /**

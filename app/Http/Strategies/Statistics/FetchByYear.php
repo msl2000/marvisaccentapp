@@ -10,9 +10,22 @@ use Illuminate\Support\Facades\DB;
 
 class FetchByYear implements FetchStrategy
 {
+     /**
+     * @param  null
+     * @return App\Http\Resources\SalesStatisticResource
+     * NOTE:
+     * This class can be used when retrieving Sales Chart Statistics by the year issues in the Request. 
+     * 1) Retrieves sales based on the start and end month of request date, which would be the whole year. The sales are grouped by months and prices are summed
+     * 2) Creates the month labels and attach the relevant sales data to the right month label
+     * Create a new SalesStatisticResource for the Frontend applcation to consume
+     */
     public function fetch()
     {
-        // if (!$data = Cache::get($month)) {
+        /**
+         * Statistical data can be optimised using Redis to cache datacollections. Considering the dataset is not too large,
+         * there was no need to implement it at this time.
+         */
+        // if (!$data = Redis::get($month)) {
         $sales = Sale::select(
             DB::raw('ROUND(sum(price), 2) as sums'),
             DB::raw("DATE_FORMAT(date,'%M %Y') as months")
